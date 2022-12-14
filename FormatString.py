@@ -101,3 +101,17 @@ print("{:X}".format(65)) #41
 print("{:b}".format(2))  #10
 print("{:.2f}".format(50)) #50.00
 print("{:,}".format(123456789)) #123,456,789
+
+
+#f-string (Python 3.6)
+
+dil = "Python"
+print(f"{dil} Programlama Dersleri") #Python Programlama Dersleri
+
+isim = "Serhat"
+yas = 30
+print(f"İsim: {isim}, Yaş: {yas}") #İsim: Serhat, Yaş: 30
+
+sayi1 = 5
+sayi2 = 10
+print(f"{sayi1} + {sayi2} = {sayi1 + sayi2}")
