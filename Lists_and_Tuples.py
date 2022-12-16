@@ -117,3 +117,31 @@ print(liste15) #[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 liste16 = [x for i in liste14 for x in i]
 print(liste16)
+
+
+#DEMETLER (TUPLES)
+
+demet = ("ali", "veli", 7, 23)
+print(type(demet)) #<class 'tuple'>
+
+demet2 = "ali", "veli", 7, 23
+demet3 = tuple("abcdef")
+print(demet3) #('a', 'b', 'c', 'd', 'e', 'f')
+
+myList = ["ali", "veli", 7, 23]
+demet4 = tuple(myList)
+print(demet4) #('ali', 'veli', 7, 23)
+
+#Tek elemanlı bir demet oluşturmak için:
+demet5 = ("ali",)
+demet6 = "ali",
+print(demet5, demet6) #('ali',) ('ali',)
+
+#Demetlerin elamanlarına erişmek
+demet7 = ("elma", "armut", "kiraz", "çilek")
+print(demet7[0]) #elma
+print(demet7[-1]) #çilek
+print(demet7[:2]) #('elma', 'armut')
+
+demet7 = demet7 + ("karpuz",)
+print(demet7) #('elma', 'armut', 'kiraz', 'çilek', 'karpuz')
