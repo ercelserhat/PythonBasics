@@ -50,3 +50,34 @@ with open("fihrist.txt", "r+") as dosya:
     veri.insert(14, "Sedat Köz\t: 0322 234 45 45\n")
     dosya.seek(0)
     dosya.writelines(veri)
+
+
+#DOSYALARIN METOD VE NİTELİKLERİ
+
+#closed
+print(dosya.closed) #True
+
+#readable()
+f = open("test.txt", "r")
+print(f.readable()) #True
+
+#writable()
+print(f.writable()) #False
+
+#mode
+print(f.mode) #r
+
+#name
+print(f.name) #test.txt
+
+#encoding
+print(f.encoding) #cp1254
+
+#truncate()
+with open("fihrist.txt", "r+") as dosya:
+    dosya.readline()
+    dosya.seek(f.tell())
+    dosya.truncate()
+    dosya.truncate(1024*3)
+
+
