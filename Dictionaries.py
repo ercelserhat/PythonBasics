@@ -61,3 +61,30 @@ notlar["Veli"] = 60
 print(notlar) #{'Ahmet': 30, 'Mehmet': 40, 'Ali': 50, 'Veli': 60}
 notlar["Veli"] = 100
 print(notlar) #{'Ahmet': 30, 'Mehmet': 40, 'Ali': 50, 'Veli': 100}
+
+
+#Sözlük Üreteçleri (Dictionary Comprehensions)
+
+#Örnek-1
+harfler = 'abcçdefgğhıijklmnoöprsştuüvyz'
+
+#1
+sozluk = {}
+for i in harfler:
+    sozluk[i] = harfler.index(i)
+print(sozluk)
+
+#2
+sozluk = {}
+for i in range(len(harfler)):
+    sozluk[harfler[i]] = i
+print(sozluk)
+
+#3-With Dictionary Comprehensions
+sozluk = {i: harfler.index(i) for i in harfler}
+print(sozluk)
+
+#Örnek-2
+isimler = ["ahmet", "mehmet", "ali", "veli", "ayşe", "fatma", "abdullah"]
+sozluk = {i: len(i) for i in isimler}
+print(sozluk) #{'ahmet': 5, 'mehmet': 6, 'ali': 3, 'veli': 4, 'ayşe': 4, 'fatma': 5, 'abdullah': 8}
