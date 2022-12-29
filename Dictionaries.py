@@ -88,3 +88,115 @@ print(sozluk)
 isimler = ["ahmet", "mehmet", "ali", "veli", "ayşe", "fatma", "abdullah"]
 sozluk = {i: len(i) for i in isimler}
 print(sozluk) #{'ahmet': 5, 'mehmet': 6, 'ali': 3, 'veli': 4, 'ayşe': 4, 'fatma': 5, 'abdullah': 8}
+
+
+#Sözlüklerin Metodları
+
+#keys()
+print(sozluk.keys()) #dict_keys(['ahmet', 'mehmet', 'ali', 'veli', 'ayşe', 'fatma', 'abdullah'])
+
+liste = list(sozluk.keys())
+print(liste) #['ahmet', 'mehmet', 'ali', 'veli', 'ayşe', 'fatma', 'abdullah']
+demet = tuple(sozluk.keys())
+print(demet) #('ahmet', 'mehmet', 'ali', 'veli', 'ayşe', 'fatma', 'abdullah')
+karakterDizisi = ", ".join(sozluk.keys())
+print(karakterDizisi) #ahmet, mehmet, ali, veli, ayşe, fatma, abdullah
+
+
+#values()
+print(sozluk.values()) #dict_values([5, 6, 3, 4, 4, 5, 8])
+
+liste = list(sozluk.values())
+print(liste) #[5, 6, 3, 4, 4, 5, 8]
+demet = tuple(sozluk.values())
+print(demet) #(5, 6, 3, 4, 4, 5, 8)
+karakterDizisi = ", ".join([str(i) for i in sozluk.values()])
+print(karakterDizisi) #5, 6, 3, 4, 4, 5, 8
+
+
+#items()
+print(sozluk.items()) #dict_items([('ahmet', 5), ('mehmet', 6), ('ali', 3), ('veli', 4), ('ayşe', 4), ('fatma', 5), ('abdullah', 8)])
+
+for anahtar, deger in sozluk.items():
+    print("{} = {}".format(anahtar, deger))
+
+#ahmet = 5
+#mehmet = 6
+#ali = 3
+
+
+#get()
+ingSozluk = {"dil": "language", "bilgisayar": "computer", "masa": "table"}
+sorgu = input("Anlamını öğrenmek istediğiniz kelimeyi yazınız: ")
+print(ingSozluk.get(sorgu, "Bu kelime veritabanımızda yoktur!"))
+
+sorgu = input("Şehrinizin adını giriniz: ")
+havaDurumu = {
+    "istanbul": "gök gürültülü ve sağanak yağışlı",
+    "ankara": "açık ve güneşli",
+    "izmir": "bulutlu"
+    }
+print(havaDurumu.get(sorgu, "Bu şehre ilişkin havadurumu bilgisi bulunamadı."))
+
+
+#clear()
+print(sozluk) #{'ahmet': 5, 'mehmet': 6, 'ali': 3, 'veli': 4, 'ayşe': 4, 'fatma': 5, 'abdullah': 8}
+sozluk.clear()
+print(sozluk) #{}
+del sozluk
+#print(sozluk) #NameError: name 'sozluk' is not defined
+
+
+#copy()
+yeniHavaDurumu = havaDurumu
+print(havaDurumu)       #{'istanbul': 'gök gürültülü ve sağanak yağışlı', 'ankara': 'açık ve güneşli', 'izmir': 'bulutlu'}
+print(yeniHavaDurumu)   #{'istanbul': 'gök gürültülü ve sağanak yağışlı', 'ankara': 'açık ve güneşli', 'izmir': 'bulutlu'}
+yeniHavaDurumu["Mersin"] = "sisli"
+print(havaDurumu)       #{'istanbul': 'gök gürültülü ve sağanak yağışlı', 'ankara': 'açık ve güneşli', 'izmir': 'bulutlu', 'Mersin': 'sisli'}
+print(yeniHavaDurumu)   #{'istanbul': 'gök gürültülü ve sağanak yağışlı', 'ankara': 'açık ve güneşli', 'izmir': 'bulutlu', 'Mersin': 'sisli'}
+
+yeniHavaDurumu = havaDurumu.copy()
+print(yeniHavaDurumu)   #{'istanbul': 'gök gürültülü ve sağanak yağışlı', 'ankara': 'açık ve güneşli', 'izmir': 'bulutlu', 'Mersin': 'sisli'}
+print(havaDurumu)       #{'istanbul': 'gök gürültülü ve sağanak yağışlı', 'ankara': 'açık ve güneşli', 'izmir': 'bulutlu', 'Mersin': 'sisli'}
+yeniHavaDurumu["Zonguldak"] = "karlı"
+print(yeniHavaDurumu)   #{'istanbul': 'gök gürültülü ve sağanak yağışlı', 'ankara': 'açık ve güneşli', 'izmir': 'bulutlu', 'Mersin': 'sisli', 'Zonguldak': 'karlı'}
+print(havaDurumu)       #{'istanbul': 'gök gürültülü ve sağanak yağışlı', 'ankara': 'açık ve güneşli', 'izmir': 'bulutlu', 'Mersin': 'sisli'}
+
+
+#fromkeys()
+elemanlar = "Ahmet", "Mehmet", "Can"
+adresler = dict.fromkeys(elemanlar, "Kadıköy")
+print(adresler) #{'Ahmet': 'Kadıköy', 'Mehmet': 'Kadıköy', 'Can': 'Kadıköy'}
+
+
+#pop()
+sepet = {
+    "meyveler":("elma", "armut"),
+    "sebzeler":("pırasa", "fasulye"),
+    "içecekler":("su", "kola", "ayran")
+}
+print(sepet) #{'meyveler': ('elma', 'armut'), 'sebzeler': ('pırasa', 'fasulye'), 'içecekler': ('su', 'kola', 'ayran')}
+print(sepet.pop("meyveler")) #('elma', 'armut')
+#sepet.pop("tatlılar") #KeyError: 'tatlılar'
+print(sepet.pop("tatlılar", "Böyle bir öğe yok.")) #Böyle bir öğe yok.
+
+
+#popitem()
+print(sepet)            #{'sebzeler': ('pırasa', 'fasulye'), 'içecekler': ('su', 'kola', 'ayran')}
+print(sepet.popitem())  #('içecekler', ('su', 'kola', 'ayran'))
+print(sepet)            #{'sebzeler': ('pırasa', 'fasulye')}
+
+
+#setdefault()
+sepet = {"meyveler": ("elma", "armut"), "sebzeler": ("pırasa", "fasulye")}
+sepet.setdefault("içecekler", ("su", "kola"))
+print(sepet) #{'meyveler': ('elma', 'armut'), 'sebzeler': ('pırasa', 'fasulye'), 'içecekler': ('su', 'kola')}
+sepet.setdefault("meyveler", ("erik", "çilek"))
+print(sepet) #{'meyveler': ('elma', 'armut'), 'sebzeler': ('pırasa', 'fasulye'), 'içecekler': ('su', 'kola')}
+
+
+#update()
+stok = {"elma":5, "armut":10, "peynir":6, "sosis":15}
+yeniStok = {"elma":3, "armut":20, "peynir":5, "sosis":10}
+stok.update(yeniStok)
+print(stok) #{'elma': 3, 'armut': 20, 'peynir': 5, 'sosis': 10}
