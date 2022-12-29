@@ -1,3 +1,5 @@
+import random
+
 bosKume = set()
 print(type(bosKume)) #<class 'set'>
 
@@ -32,4 +34,11 @@ for i in set(liste):
 #çilek listede 1 kez geçiyor.
 #elma listede 4 kez geçiyor.
 #armut listede 3 kez geçiyor.
+
+
+#Küme Üreteçleri (Set Comprehensions)
+
+liste = [random.randint(0, 10000) for i in range(1000)]
+yuzdenKucukSayilar = {i for i in liste if i < 100}
+print(yuzdenKucukSayilar) #{5, 6, 85, 24, 57}
 
