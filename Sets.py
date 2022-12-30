@@ -160,3 +160,16 @@ print(a) #{2, 4}
 #pop()
 meyveler = set(["elma", "armut", "çilek"])
 print(meyveler.pop()) #çilek
+
+
+#FROZENSET
+#Üzerinde değişiklik yapılmasını istemediğimiz bir küme oluşturmak istiyorsak
+#set yerine frozenset'i kullanabiliriz. 
+
+dondurulmusKume = frozenset(["elma", "armut", "çilek"])
+
+#Frozenset Metodları
+for i in dir(dondurulmusKume):
+    if "__" not in i:
+        print(i) #copy difference intersection isdisjoint issubset issuperset symmetric_difference union
+
