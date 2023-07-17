@@ -28,6 +28,14 @@ class Calisan():
         for kabiliyet in self.kabiliyetler:
             print(kabiliyet)
 
+    @staticmethod
+    def pi():
+        return 22/7
+
+    @staticmethod
+    def karekok(sayi):
+        return sayi ** 0.5
+
 
 
 class HarfSayaci:
