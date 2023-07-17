@@ -10,10 +10,15 @@ class Calisan():
         self.personel.append(self.isim)
         print("{} adlı kişi personele eklendi.".format(self.isim))
 
-    def personelGoruntule(self):
+    @classmethod
+    def personelGoruntule(cls):
         print("Personel Listesi:")
-        for kisi in self.personel:
+        for kisi in cls.personel:
             print(kisi)
+    
+    @classmethod
+    def personelSayisiniGoruntule(cls):
+        print(len(cls.personel))
 
     def kabiliyetEkle(self, kabiliyet):
         self.kabiliyetler.append(kabiliyet)
